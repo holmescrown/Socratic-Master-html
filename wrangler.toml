@@ -1,0 +1,27 @@
+name = "socratic-tutor"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# 1. D1 数据库绑定 - 存储思维轨迹
+[[d1_databases]]
+binding = "DB"
+database_name = "tutor_db"
+database_id = "5002be0e-cfe3-49bc-9448-1183638b85fa"
+
+# 2. Vectorize 向量库绑定 - 存储逻辑记忆
+[[vectorize]]
+binding = "VECTORIZE"
+index_name = "student_mems"
+
+# 3. KV 命名空间绑定 - 存储生成的周报
+[[kv_namespaces]]
+binding = "KV"
+id = "8024242edae84a729a021822442922ca"
+
+# 4. AI 模型绑定
+[ai]
+binding = "AI"
+
+# 5. 定时任务 - 每周日晚8点自动分析数据
+[triggers]
+crons = ["0 20 * * SUN"]
